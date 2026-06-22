@@ -9,6 +9,10 @@ uv sync --group openharness-stage-3
 uv run python openharness/stage-3/08_stage3_final.py
 ```
 
+## Lab 实操（必做）
+
+[stage-3/lab/README.md](stage-3/lab/README.md)
+
 ## 专业示范
 
 [showcase/03_mcp_readonly_server](showcase/03_mcp_readonly_server/)

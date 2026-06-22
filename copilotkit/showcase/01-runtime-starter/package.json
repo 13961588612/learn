@@ -1,0 +1,22 @@
+{
+  "name": "01-runtime-starter",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@copilotkit/react-core": "^1.60.0",
+    "@copilotkit/react-ui": "^1.60.0",
+    "@copilotkit/runtime": "^1.60.0",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}

@@ -17,4 +17,4 @@ uv sync --group openharness-showcase
 
 ## 学习顺序
 
-stage-1 → stage-2 → **01, 02** → stage-3 → **03** → stage-4 → **04** → base/openharness P5–P6
+stage-1 + lab → stage-2 + lab + **01,02** → stage-3 + lab + **03** → stage-4 + lab → stage-5 + lab + **04** → stage-6~7 + base P5~P6

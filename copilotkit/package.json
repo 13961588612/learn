@@ -1,0 +1,21 @@
+{
+  "name": "learn-copilotkit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CopilotKit + A2UI 分阶段学习（TypeScript 练习 + Next.js showcase）",
+  "type": "module",
+  "scripts": {
+    "stage:01": "tsx stage-01/01_stack_overview.ts",
+    "stage:01:all": "tsx stage-01/06_stage01_final.ts",
+    "stage:02:all": "tsx stage-02/06_stage02_final.ts",
+    "stage:03:all": "tsx stage-03/06_stage03_final.ts",
+    "stage:04:all": "tsx stage-04/06_stage04_final.ts",
+    "stage:05:all": "tsx stage-05/05_stage05_final.ts",
+    "stage:06:all": "tsx stage-06/05_stage06_final.ts",
+    "stage:07:all": "tsx stage-07/05_stage07_final.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}

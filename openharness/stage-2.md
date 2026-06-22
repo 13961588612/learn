@@ -7,9 +7,12 @@
 ```bash
 uv sync --group openharness-stage-2
 
-uv run python openharness/stage-2/01_builtin_tools_catalog.py
 uv run python openharness/stage-2/10_stage2_final.py
 ```
+
+## Lab 实操（必做）
+
+[stage-2/lab/README.md](stage-2/lab/README.md) — 安装 Skills、TUI `/skills`、权限与 Plan 模式。
 
 ## 练习脚本
 

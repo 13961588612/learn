@@ -10,9 +10,10 @@
 |------|--------|---------------|------|
 | [`python/`](../python/) | Python 语言与工程化 | 根目录 uv | stage-1/2 可用 |
 | [`langchain/`](../langchain/) | LangChain / LangGraph | 同上 | stage-1/2 可用 |
-| [`openharness/`](../openharness/) | OpenHarness Agent 后端 | 同上 | stage-1~4 可用 |
-| `react/`（规划） | React 前端 | 子目录内 `package.json` + pnpm/npm | 待建 |
-| `typescript/`（规划） | TypeScript 基础 | 子目录内 `package.json` + pnpm/npm | 待建 |
+| [`openharness/`](../openharness/) | OpenHarness Agent 后端 | 根目录 uv + CLI | stage-1~7 + lab |
+| [`agentscope/`](../agentscope/) | AgentScope 多 Agent 框架 | 根目录 uv | stage-1~7 + lab + showcase |
+| [`copilotkit/`](../copilotkit/) | CopilotKit + A2UI 客户端 | 子目录 pnpm | stage-01~07 可用 |
+| `react/`（规划） | React 前端基础 | 子目录 `package.json` | 待建 |
 
 后续可在根目录继续增加其他子目录（如 `vue/`、`go/` 等），遵循下文约定即可。
 

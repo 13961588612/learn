@@ -37,8 +37,14 @@
 | [../python/stage-2.md](../python/stage-2.md) | 阶段二：面向对象与标准库 | 可用 |
 | [../langchain/README.md](../langchain/README.md) | LangChain + LangGraph + DeepAgents 学习计划 | 可用 |
 | [../langchain/stage-1.md](../langchain/stage-1.md) | 阶段一：LangChain 核心基础 | 可用 |
-| [../openharness/README.md](../openharness/README.md) | OpenHarness 四阶段 + showcase | 可用 |
-| [../openharness/stage-1.md](../openharness/stage-1.md) | P0 Harness 心智模型 | 可用 |
+| [../openharness/README.md](../openharness/README.md) | OpenHarness 七阶段 + lab + showcase | 可用 |
+| [../openharness/lab/README.md](../openharness/lab/README.md) | **OpenHarness 实操手册**（命令 / 配置 / 排错） | 必读 |
+| [../openharness/stage-1.md](../openharness/stage-1.md) | P0 Harness 心智模型 + CLI Lab | 可用 |
+| [../openharness/notes/cli-lab-guide.md](../openharness/notes/cli-lab-guide.md) | OpenHarness CLI/TUI 实验流程 | 必读 |
+| [../agentscope/README.md](../agentscope/README.md) | AgentScope 七阶段 + lab + showcase | 可用 |
+| [../agentscope/lab/README.md](../agentscope/lab/README.md) | AgentScope 实操手册 | 必读 |
+| [../agentscope/stage-1.md](../agentscope/stage-1.md) | P0 Msg + Agent Loop | 可用 |
+| [../copilotkit/README.md](../copilotkit/README.md) | CopilotKit 七阶段 + showcase | 可用 |
 
 ---
 

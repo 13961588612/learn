@@ -12,7 +12,9 @@
 |------|------|--------|------|
 | [`python/`](python/README.md) | Python 语言、类型、异步、FastAPI、showcase | uv（根目录） | stage-1/2 可用 |
 | [`langchain/`](langchain/README.md) | LangChain 核心 + LangGraph 编排 | uv（根目录） | stage-1/2 可用 |
-| [`openharness/`](openharness/README.md) | OpenHarness Agent 后端 / Gateway | uv（根目录） | stage-1~4 + showcase 可用 |
+| [`openharness/`](openharness/README.md) | OpenHarness Agent 后端 / Gateway | uv（根目录） | **7 stage + lab** 可用 |
+| [`agentscope/`](agentscope/README.md) | AgentScope 多 Agent 框架 / Bridge 二开 | uv（根目录） | **7 stage + lab** 可用 |
+| [`copilotkit/`](copilotkit/README.md) | CopilotKit + A2UI Agent 客户端 | pnpm（子目录） | stage-01~07 + showcase 可用 |
 | `react/` | React 前端（规划） | 子目录 `package.json` | 待建 |
 | `typescript/` | TypeScript 基础（规划） | 子目录 `package.json` | 待建 |
 
@@ -73,7 +75,25 @@ uv run python openharness/stage-1/10_stage1_final.py
 ```
 
 专业示范见 [openharness/showcase/README.md](openharness/showcase/README.md)。  
+**实操手册**（命令速查 / 故障排查）：[openharness/lab/README.md](openharness/lab/README.md)  
 完整 14 周课表见 [`../base/openharness/`](../base/openharness/)。
+
+---
+
+## AgentScope 轨道 · 快速开始
+
+```bash
+uv sync --group agentscope-core
+
+cp agentscope/.env.example agentscope/.env   # 填写 API Key
+
+uv run python agentscope/stage-1/01_agentscope_concepts.py
+uv run python agentscope/stage-1/lab/scripts/01_first_reply.py
+```
+
+专业示范与 IntentGate Bridge：[agentscope/showcase/README.md](agentscope/showcase/README.md)  
+实操手册：[agentscope/lab/README.md](agentscope/lab/README.md)  
+课表：[../base/agentscope/LEARNING_PLAN.md](../base/agentscope/LEARNING_PLAN.md)
 
 ---
 
@@ -84,7 +104,11 @@ python/stage-1 → stage-2 → stage-3 → stage-4 → showcase/
         ↓（已有 Python 可跳过）
 langchain/stage-1 → stage-2 → （DeepAgents 见 langchain/README 阶段三）
         ↓
-openharness/stage-1 → stage-4 → showcase/ → base/openharness P5–P6
+openharness/stage-1 → stage-7（每 stage 含 lab/ 实操）→ showcase/
+        ↓
+agentscope/stage-1 → stage-7（Toolkit/MCP/Bridge 二开）→ IntentGate capstone
+        ↓
+copilotkit/stage-01 → stage-07 → showcase/ → base/copilotkit-a2ui P5
 ```
 
 ---
@@ -103,17 +127,33 @@ openharness/stage-1 → stage-4 → showcase/ → base/openharness P5–P6
 ├── python/             # Python 轨道
 ├── langchain/          # LangChain 轨道
 ├── openharness/        # OpenHarness 轨道
-└── react/ …            # 未来 JS/TS 轨道（各自 package.json）
+├── copilotkit/         # CopilotKit 轨道（pnpm）
+└── react/ …            # 未来 JS/TS 基础（各自 package.json）
 ```
 
 ---
 
-## 环境要求（按轨道）
+## CopilotKit 轨道 · 快速开始
+
+```bash
+cd learn/copilotkit
+pnpm install
+npx tsx stage-01/01_stack_overview.ts
+
+cd showcase/01-runtime-starter
+pnpm install && cp ../../.env.example .env.local && pnpm dev
+```
+
+详见 [copilotkit/README.md](copilotkit/README.md)。
+
+---
+
 
 | 轨道 | 要求 |
 |------|------|
 | Python / LangChain / OpenHarness | Python 3.11+、uv；LangChain 需 LLM Key；OpenHarness 可选 CLI |
 | React / TS（规划） | Node.js LTS、pnpm 或 npm（在对应子目录安装） |
+| CopilotKit | pnpm、`copilotkit/` 目录；showcase 需 OPENAI_API_KEY |
 
 ---
 

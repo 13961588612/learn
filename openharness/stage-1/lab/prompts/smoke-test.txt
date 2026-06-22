@@ -1,0 +1,1 @@
+Explain the OpenHarness Agent Loop in three sentences. Do not use tools.

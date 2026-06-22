@@ -24,4 +24,7 @@ out/
 python/**/data/report.json
 python/**/data/sample.txt
 openharness/**/data/
-openharness/showcase/01_custom_tool_audit/data/
+copilotkit/**/node_modules/
+copilotkit/**/.next/
+openharness/**/lab/experiments/*.json
+openharness/**/lab/.openharness/
