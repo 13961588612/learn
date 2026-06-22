@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "company-tickets": {
+      "command": "uv",
+      "args": [
+        "run",
+        "python",
+        "openharness/showcase/03_mcp_readonly_server/server.py"
+      ],
+      "env": {}
+    }
+  }
+}
