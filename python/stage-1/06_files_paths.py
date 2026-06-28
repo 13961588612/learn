@@ -7,15 +7,15 @@
 3. with 语句自动关闭文件句柄
 """
 
-from pathlib import Path
+from pathlib import Path  # 面向对象的路径操作
 
 
 def demo_pathlib():
     print("\n=== pathlib ===")
-    here = Path(__file__).resolve()
-    data_dir = here.parent / "data"
-    data_dir.mkdir(exist_ok=True)
-    print(f"当前脚本: {here.name}")
+    here = Path(__file__).resolve()  # __file__ 当前脚本路径；resolve() 转绝对路径
+    data_dir = here.parent / "data"  # / 运算符拼接路径（跨平台）
+    data_dir.mkdir(exist_ok=True)    # 创建目录；exist_ok=True 已存在不报错
+    print(f"当前脚本: {here.name}")   # .name 取文件名
     print(f"data 目录: {data_dir}")
 
 
@@ -23,6 +23,7 @@ def demo_write_read():
     print("\n=== 读写文本 ===")
     path = Path(__file__).parent / "data" / "sample.txt"
     lines = ["第一行\n", "第二行 Hello\n", "第三行 中文\n"]
+    # write_text 一次性写入字符串；encoding 显式指定 UTF-8
     path.write_text("".join(lines), encoding="utf-8")
 
     content = path.read_text(encoding="utf-8")
@@ -32,9 +33,11 @@ def demo_write_read():
 def demo_read_lines():
     print("\n=== 逐行读取 ===")
     path = Path(__file__).parent / "data" / "sample.txt"
+    # with 语句：退出块时自动关闭文件，即使发生异常
     with path.open(encoding="utf-8") as f:
+        # enumerate(f, 1) 从 1 开始编号每行
         for i, line in enumerate(f, 1):
-            print(f"  L{i}: {line.rstrip()}")
+            print(f"  L{i}: {line.rstrip()}")  # rstrip() 去掉行尾换行符
 
 
 def main():

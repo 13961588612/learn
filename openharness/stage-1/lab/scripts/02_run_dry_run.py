@@ -1,7 +1,7 @@
 """Lab 02: dry-run 实验"""
 
-import sys
-from pathlib import Path
+import sys              # 修改 sys.path 以 import _shared
+from pathlib import Path  # 路径解析与拼接
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
@@ -12,6 +12,7 @@ LAB_DIR = Path(__file__).resolve().parents[1]
 
 
 def main():
+    """执行 dry-run 与带 JSON 输出的 dry-run，保存实验结果。"""
     print("=" * 50)
     print("Lab 02 - dry-run")
     print("=" * 50)
@@ -24,6 +25,7 @@ def main():
     path = save_experiment(LAB_DIR, "dry_run", result)
     print(f"\n  已保存: {path}")
 
+    # 多行调用：列表为 CLI 参数，含 -p prompt 与 --output-format json
     result2 = run_cli(
         ["--dry-run", "-p", "Explain OpenHarness in one sentence", "--output-format", "json"],
         timeout=60,
@@ -35,5 +37,6 @@ def main():
     print("\n[OK] lab 02 完成")
 
 
+# 直接运行本文件时 __name__ == "__main__"；被 import 时为模块名
 if __name__ == "__main__":
     main()

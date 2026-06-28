@@ -190,9 +190,10 @@ python/
 | 目录清单（本文） | ✅ 已确定 |
 | `stage-1/` 代码 + `stage-1.md` | ✅ 可用 |
 | `stage-2/` 代码 + `stage-2.md` | ✅ 可用 |
-| `stage-3/` ~ `stage-4/` 代码 | ⬜ 待编写 |
+| `stage-3/` 代码 + `stage-3.md` | ✅ 可用 |
+| `stage-4/` 代码 | ⬜ 待编写 |
 | `showcase/` 示范工程 | ⬜ 待编写 |
-| 各 `stage-3.md` ~ `stage-4.md` | ⬜ 待编写 |
+| `stage-4.md` | ⬜ 待编写 |
 
 ---
 
@@ -200,4 +201,5 @@ python/
 
 | 版本 | 日期 | 说明 |
 |------|------|------|
+| 0.3.0 | 2026-06-28 | stage-3 练习脚本与指南（typing、Pydantic、async、httpx） |
 | 0.2.0 | 2026-06-21 | stage-1 / stage-2 练习脚本与指南 |

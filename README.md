@@ -10,7 +10,7 @@
 
 | 目录 | 说明 | 工具链 | 状态 |
 |------|------|--------|------|
-| [`python/`](python/README.md) | Python 语言、类型、异步、FastAPI、showcase | uv（根目录） | stage-1/2 可用 |
+| [`python/`](python/README.md) | Python 语言、类型、异步、FastAPI、showcase | uv（根目录） | stage-1/2/3 可用 |
 | [`langchain/`](langchain/README.md) | LangChain 核心 + LangGraph 编排 | uv（根目录） | stage-1/2 可用 |
 | [`openharness/`](openharness/README.md) | OpenHarness Agent 后端 / Gateway | uv（根目录） | **7 stage + lab** 可用 |
 | [`agentscope/`](agentscope/README.md) | AgentScope 多 Agent 框架 / Bridge 二开 | uv（根目录） | **7 stage + lab** 可用 |
@@ -32,6 +32,17 @@ uv run python python/stage-1/01_hello_types.py
 
 uv run python python/stage-2/01_classes_basics.py
 # 按编号至 09，详见 python/stage-2.md
+```
+
+---
+
+## Python 轨道 · 阶段三（typing / Pydantic / async）
+
+```bash
+uv sync --no-default-groups --group python-stage-3
+
+uv run --no-default-groups python python/stage-3/01_typing_basics.py
+# 按编号至 08，详见 python/stage-3.md
 ```
 
 ---

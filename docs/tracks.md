@@ -8,7 +8,7 @@
 
 | 目录 | 技术栈 | 包管理 / 工具 | 状态 |
 |------|--------|---------------|------|
-| [`python/`](../python/) | Python 语言与工程化 | 根目录 uv | stage-1/2 可用 |
+| [`python/`](../python/) | Python 语言与工程化 | 根目录 uv | stage-1/2/3 可用 |
 | [`langchain/`](../langchain/) | LangChain / LangGraph | 同上 | stage-1/2 可用 |
 | [`openharness/`](../openharness/) | OpenHarness Agent 后端 | 根目录 uv + CLI | stage-1~7 + lab |
 | [`agentscope/`](../agentscope/) | AgentScope 多 Agent 框架 | 根目录 uv | stage-1~7 + lab + showcase |

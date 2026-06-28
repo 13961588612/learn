@@ -9,23 +9,24 @@
 
 import os
 import subprocess
-import sys
+import sys       # sys.executable 为当前 Python 解释器路径
 from pathlib import Path
 
 
 def demo_environ():
     print("\n=== os.environ ===")
-    path_preview = os.environ.get("PATH", "")[:80]
+    # os.environ 类似 dict；.get(key, default) 安全读取
+    path_preview = os.environ.get("PATH", "")[:80]  # 切片取前 80 字符
     print(f"PATH 前缀: {path_preview}...")
 
 
 def demo_subprocess():
     print("\n=== subprocess.run ===")
     result = subprocess.run(
-        [sys.executable, "-c", "print('hello from subprocess')"],
-        capture_output=True,
-        text=True,
-        check=True,
+        [sys.executable, "-c", "print('hello from subprocess')"],  # 列表形式，无 shell 注入风险
+        capture_output=True,  # 捕获 stdout/stderr
+        text=True,            # 输出解码为 str 而非 bytes
+        check=True,           # 非零退出码时抛 CalledProcessError
     )
     print(f"stdout: {result.stdout.strip()}")
 
@@ -33,6 +34,7 @@ def demo_subprocess():
 def demo_pathlib_walk():
     print("\n=== pathlib 列举 ===")
     here = Path(__file__).parent
+    # glob("*.py") 匹配当前目录下所有 .py 文件
     py_files = sorted(p.name for p in here.glob("*.py"))
     print(f"stage-2 脚本: {py_files[:4]} ... 共 {len(py_files)} 个")
 

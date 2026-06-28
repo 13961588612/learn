@@ -7,13 +7,15 @@
 3. abc.ABC + @abstractmethod 定义接口
 """
 
-from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod  # ABC 抽象基类；abstractmethod 标记必须实现的方法
 
 
 class Notifier(ABC):
+    """抽象基类：不能直接实例化，子类必须实现 send"""
+
     @abstractmethod
     def send(self, message: str) -> str:
-        ...
+        ...  # ... 或 pass，表示方法体由子类实现
 
 
 class EmailNotifier(Notifier):
@@ -30,14 +32,15 @@ class LoggingNotifier(Notifier):
     """装饰器模式：包装另一个 Notifier 并记录日志"""
 
     def __init__(self, wrapped: Notifier):
-        self.wrapped = wrapped
+        self.wrapped = wrapped  # 组合：持有被包装对象
 
     def send(self, message: str) -> str:
-        result = self.wrapped.send(message)
+        result = self.wrapped.send(message)  # 委托给内部 Notifier
         return f"{result} (logged)"
 
 
 def notify_all(notifiers: list[Notifier], message: str) -> None:
+    # 多态：不关心具体子类，统一调用 send
     for n in notifiers:
         print(n.send(message))
 
@@ -49,7 +52,7 @@ def main():
 
     notifiers: list[Notifier] = [
         EmailNotifier(),
-        LoggingNotifier(SmsNotifier()),
+        LoggingNotifier(SmsNotifier()),  # 嵌套包装
     ]
     notify_all(notifiers, "服务已重启")
     print("\n[OK] 完成")

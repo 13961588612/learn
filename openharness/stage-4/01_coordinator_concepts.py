@@ -8,10 +8,11 @@
 
 
 def main():
-    print("=" * 50)
+    print("=" * 50)   # 字符串 * 整数：重复 50 次
     print("01 - Coordinator Concepts")
     print("=" * 50)
 
+    # 三引号多行字符串，保留缩进，用于打印 Coordinator 架构示意
     print("""
   [User Query]
        |

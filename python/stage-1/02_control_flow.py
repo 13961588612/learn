@@ -12,9 +12,10 @@
 def demo_if_elif():
     print("\n=== if / elif / else ===")
     score = 85
+    # 缩进（通常 4 空格）定义代码块，无需 {}
     if score >= 90:
         grade = "A"
-    elif score >= 80:
+    elif score >= 80:  # else if 的 Python 写法
         grade = "B"
     else:
         grade = "C"
@@ -24,14 +25,15 @@ def demo_if_elif():
 def demo_for_while():
     print("\n=== for / while ===")
     total = 0
+    # range(1, 6) 生成 1,2,3,4,5（左闭右开）
     for n in range(1, 6):
         total += n
     print(f"1..5 sum = {total}")
 
     count = 3
-    while count > 0:
+    while count > 0:  # 条件为真时反复执行
         print(f"countdown: {count}")
-        count -= 1
+        count -= 1    # 等价于 count = count - 1
 
 
 def demo_match():
@@ -39,25 +41,29 @@ def demo_match():
     commands = ["start", "stop", "pause", "unknown"]
 
     for cmd in commands:
+        # match/case：结构模式匹配（Python 3.10+）
         match cmd:
             case "start":
                 action = "启动服务"
-            case "stop" | "pause":
+            case "stop" | "pause":  # | 表示多个模式或匹配
                 action = "变更状态"
-            case str(s) if s.startswith("debug"):
+            case str(s) if s.startswith("debug"):  # 守卫条件 if
                 action = f"调试模式: {s}"
-            case _:
+            case _:  # _ 为通配符，匹配其余所有情况
                 action = "未知命令"
         print(f"{cmd!r} -> {action}")
 
 
 def demo_boolean_short_circuit():
     print("\n=== 布尔短路 ===")
+
     def expensive() -> bool:
         print("  (expensive 被调用)")
         return True
 
+    # and：左侧为 False 时不求值右侧（短路）
     print("False and expensive:", False and expensive())
+    # or：左侧为 True 时不求值右侧（短路）
     print("True or expensive:", True or expensive())
 
 

@@ -7,10 +7,11 @@
 """
 
 from dataclasses import dataclass, field
-from enum import Enum
+from enum import Enum  # Enum 定义有限常量集合，成员可比较、可 .value 取字符串
 
 
 class TaskStatus(str, Enum):
+    # (str, Enum) 多重继承：成员值同时是 str，可直接与字符串比较
     PENDING = "pending"
     RUNNING = "running"
     DONE = "done"
@@ -21,28 +22,32 @@ class TaskStatus(str, Enum):
 class Task:
     id: str
     prompt: str
-    status: TaskStatus = TaskStatus.PENDING
-    output: str = ""
+    status: TaskStatus = TaskStatus.PENDING  # 枚举成员作为默认值
+    output: str = ""  # 空字符串默认
 
 
 @dataclass
 class TaskManager:
+    # dict[str, Task] 键为 task id，值为 Task 实例
     tasks: dict[str, Task] = field(default_factory=dict)
-    _counter: int = 0
+    _counter: int = 0  # 下划线前缀表示「内部用」计数器
 
     def create(self, prompt: str) -> Task:
-        self._counter += 1
-        tid = f"task-{self._counter}"
+        self._counter += 1  # 自增生成唯一 id
+        tid = f"task-{self._counter}"  # f-string 拼接 id
+        # 创建时直接设为 RUNNING，模拟后台立即启动
         t = Task(id=tid, prompt=prompt, status=TaskStatus.RUNNING)
-        self.tasks[tid] = t
+        self.tasks[tid] = t  # dict 赋值注册 Task
         return t
 
     def complete(self, tid: str, output: str) -> None:
-        t = self.tasks[tid]
+        # -> None 表示无返回值；通过修改 t 的属性更新状态
+        t = self.tasks[tid]  # 按键取 Task；不存在会 KeyError
         t.output = output
         t.status = TaskStatus.DONE
 
     def stop(self, tid: str) -> None:
+        # 链式访问：先取 Task 再改 status
         self.tasks[tid].status = TaskStatus.STOPPED
 
 
@@ -54,10 +59,11 @@ def main():
     mgr = TaskManager()
     t = mgr.create("汇总上周工单统计")
     mgr.complete(t.id, "共 42 单，P0: 2")
+    # .status.value 取 Enum 底层字符串值
     print(f"  {t.id} status={t.status.value} output={t.output}")
 
     t2 = mgr.create("长时间扫描")
-    mgr.stop(t2.id)
+    mgr.stop(t2.id)  # 模拟用户或系统中止
     print(f"  {t2.id} status={t2.status.value}")
 
     print("\n[OK] 完成")

@@ -9,7 +9,7 @@
 
 from pathlib import Path
 
-from notes import NoteStore
+from notes import NoteStore  # 从同目录 notes 包导入（需在该目录下运行）
 
 
 def main():
@@ -20,6 +20,7 @@ def main():
     db_path = Path(__file__).parent / "data" / "notes.json"
     store = NoteStore(db_path)
 
+    # list 为空时为 falsy
     if not store.list_all():
         store.add("学习 Python", "完成 stage-1 与 stage-2")
         store.add("学习 LangChain", "进入 langchain/stage-1")
@@ -31,6 +32,7 @@ def main():
     for note in store.list_all():
         print(f"  [{note.id}] {note.title}: {note.content}")
 
+    # find_by_title 大小写不敏感搜索
     hits = store.find_by_title("python")
     print(f"\n搜索 'python': {[n.title for n in hits]}")
     print(f"\n数据文件: {db_path}")

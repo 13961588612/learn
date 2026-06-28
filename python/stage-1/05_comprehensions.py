@@ -10,7 +10,9 @@
 
 def demo_list_comprehension():
     print("\n=== 列表推导 ===")
+    # [表达式 for 变量 in 可迭代对象]
     squares = [x * x for x in range(1, 6)]
+    # 带条件过滤：[表达式 for ... if 条件]
     evens = [x for x in range(10) if x % 2 == 0]
     print(f"squares: {squares}")
     print(f"evens: {evens}")
@@ -19,7 +21,9 @@ def demo_list_comprehension():
 def demo_dict_set_comprehension():
     print("\n=== 字典 / 集合推导 ===")
     word = "hello"
+    # {键: 值 for ...} 字典推导；set(word) 去重得到唯一字符
     freq = {ch: word.count(ch) for ch in set(word)}
+    # {表达式 for ...} 集合推导
     unique_lengths = {len(w) for w in ["ai", "ml", "llm"]}
     print(f"freq: {freq}")
     print(f"unique_lengths: {unique_lengths}")
@@ -27,20 +31,24 @@ def demo_dict_set_comprehension():
 
 def demo_generator_expression():
     print("\n=== 生成器表达式 ===")
+    # (表达式 for ...) 圆括号 → 生成器表达式，惰性求值不立即算完
     gen = (x * x for x in range(1, 6))
     print(f"type: {type(gen).__name__}")
+    # next(gen) 逐个取值；列表推导包一层可一次取多个
     print(f"first three: {[next(gen) for _ in range(3)]}")
 
 
 def count_up_to(n: int):
+    """含 yield 的函数是生成器函数，调用返回生成器对象而非直接返回值"""
     current = 1
     while current <= n:
-        yield current
+        yield current  # 产出值并暂停，下次 next() 从这里继续
         current += 1
 
 
 def demo_yield():
     print("\n=== yield 生成器 ===")
+    # for 循环自动调用 next()，StopIteration 时结束
     for value in count_up_to(5):
         print(f"  got {value}")
 

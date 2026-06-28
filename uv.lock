@@ -1810,6 +1810,11 @@ openharness-stage-4 = [
 openharness-stage-5 = [
     { name = "pydantic" },
 ]
+python-stage-3 = [
+    { name = "httpx" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
+]
 
 [package.metadata]
 
@@ -1866,6 +1871,13 @@ openharness-stage-2 = [{ name = "pydantic", specifier = ">=2.0.0" }]
 openharness-stage-3 = [{ name = "pydantic", specifier = ">=2.0.0" }]
 openharness-stage-4 = [{ name = "pydantic", specifier = ">=2.0.0" }]
 openharness-stage-5 = [{ name = "pydantic", specifier = ">=2.0.0" }]
+python-stage-1 = []
+python-stage-2 = []
+python-stage-3 = [
+    { name = "httpx", specifier = ">=0.27.0" },
+    { name = "pydantic", specifier = ">=2.0.0" },
+    { name = "pydantic-settings", specifier = ">=2.0.0" },
+]
 
 [[package]]
 name = "linkify-it-py"

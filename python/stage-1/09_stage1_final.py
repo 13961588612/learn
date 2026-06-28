@@ -9,16 +9,19 @@
 
 import csv
 import json
-from collections import defaultdict
+from collections import defaultdict  # 带默认值的 dict，访问缺失键时自动创建
 from pathlib import Path
 
 
 def load_orders(csv_path: Path) -> list[dict]:
+    # with 保证文件关闭；newline="" 是 csv 模块推荐写法，避免换行符问题
     with csv_path.open(encoding="utf-8", newline="") as f:
+        # DictReader 每行转为 dict，键为 CSV 表头
         return list(csv.DictReader(f))
 
 
 def aggregate(orders: list[dict]) -> dict:
+    # defaultdict(lambda: {...}) 新键默认值为 {"quantity": 0, "amount": 0.0}
     stats: dict[str, dict] = defaultdict(lambda: {"quantity": 0, "amount": 0.0})
 
     for row in orders:
@@ -28,11 +31,12 @@ def aggregate(orders: list[dict]) -> dict:
         stats[cat]["quantity"] += qty
         stats[cat]["amount"] += qty * price
 
+    # 生成器表达式在 sum() 内惰性求值
     total_qty = sum(s["quantity"] for s in stats.values())
     total_amount = sum(s["amount"] for s in stats.values())
 
     return {
-        "by_category": dict(stats),
+        "by_category": dict(stats),  # defaultdict 转普通 dict 便于 JSON 序列化
         "total_quantity": total_qty,
         "total_amount": round(total_amount, 2),
     }
@@ -51,6 +55,7 @@ def main():
     print(f"\n读取 {len(orders)} 条订单")
 
     report = aggregate(orders)
+    # ensure_ascii=False 保留中文；indent=2 格式化缩进
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print("\n按类别汇总:")

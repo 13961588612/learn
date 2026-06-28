@@ -8,6 +8,7 @@
 """
 
 
+# 列表包元组：(维度, OpenHarness, LangGraph)；for 循环可解包为三个变量
 COMPARISON = [
     ("编排位置", "Harness coordinator / Task", "LangGraph StateGraph"),
     ("状态持久化", "MEMORY.md / session", "Checkpointer"),
@@ -21,6 +22,7 @@ def main():
     print("07 - vs LangGraph")
     print("=" * 50)
 
+    # for dim, oh, lg in COMPARISON 元组解包
     for dim, oh, lg in COMPARISON:
         print(f"\n  [{dim}]")
         print(f"    OpenHarness: {oh}")
