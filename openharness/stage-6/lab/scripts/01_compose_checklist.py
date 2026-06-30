@@ -3,9 +3,9 @@
 from pathlib import Path  # Path 对象支持 / 拼接、exists()、read_text()
 
 # parents[5] 从 lab/scripts/ 向上 6 级到仓库 learn 根目录
-STUDY_ROOT = Path(__file__).resolve().parents[5]
+STUDY_ROOT = Path(__file__).resolve().parents[5]  # Path
 # Path / str：用 / 运算符拼接路径段
-compose = STUDY_ROOT / "base" / "openharness" / "docker-compose.yml"
+compose = STUDY_ROOT / "base" / "openharness" / "docker-compose.yml"  # Path
 
 
 def main():
@@ -17,9 +17,9 @@ def main():
         print(f"  未找到: {compose}")
         return
 
-    text = compose.read_text(encoding="utf-8")  # 一次性读入全文
+    text = compose.read_text(encoding="utf-8")  # str
     print(f"  路径: {compose}")
-    for line in text.splitlines():  # 逐行扫描 compose 内容
+    for line in text.splitlines():  # str
         # strip() 去空白；startswith / in 过滤 image 与 container_name 行
         if line.strip().startswith("image:") or "container_name:" in line:
             print(f"  {line.strip()}")

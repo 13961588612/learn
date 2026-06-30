@@ -22,10 +22,10 @@ def main():
     print("08 - Stage 4 Final")
     print("=" * 50)
 
-    topics = ["竞品 A", "竞品 B", "政策风险"]  # 待调研主题列表
+    topics = ["竞品 A", "竞品 B", "政策风险"]  # list[str]
     # 列表推导：对每个 topic 调用 research_agent，得到 findings 列表
-    findings = [research_agent(t) for t in topics]
-    report = summarize_agent(findings)  # 主 Agent 汇总
+    findings = [research_agent(t) for t in topics]  # list[str]
+    report = summarize_agent(findings)  # str
 
     print(f"\n{report}")  # f-string 可嵌入多行字符串
     print("\n[OK] 阶段四综合练习完成")

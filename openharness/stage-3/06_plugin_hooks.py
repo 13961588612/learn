@@ -31,7 +31,7 @@ def main():
     print("=" * 50)
 
     # Path(__file__).parent 当前脚本所在目录 stage-3/
-    out = Path(__file__).parent / "data" / "hooks.example.json"
+    out = Path(__file__).parent / "data" / "hooks.example.json"  # Path
     # mkdir(parents=True) 递归创建中间目录；exist_ok=True 已存在不报错
     out.parent.mkdir(parents=True, exist_ok=True)
     # json.dumps(indent=2) 格式化 JSON；write_text 写入 UTF-8 文本

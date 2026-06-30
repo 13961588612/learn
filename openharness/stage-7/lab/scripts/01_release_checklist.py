@@ -15,7 +15,7 @@ def main():
     print("Lab - Release Checklist")
     print("=" * 50)
     # enumerate(iterable, start=1)：同时得到序号 i（从 1 起）与元素 item
-    for i, item in enumerate(RELEASE_CHECKLIST, 1):
+    for i, item in enumerate(RELEASE_CHECKLIST, 1):  # i: int；item: str
         print(f"  [ ] {i}. {item}")
     print("\n[OK] 完成")
 

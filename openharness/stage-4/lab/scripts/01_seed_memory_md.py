@@ -14,9 +14,9 @@ MEMORY = """# MEMORY
 """
 
 # parents[1] 从 lab/scripts/ 到 lab/ 目录
-LAB_DIR = Path(__file__).resolve().parents[1]
+LAB_DIR = Path(__file__).resolve().parents[1]  # Path
 # lab 下 .openharness/MEMORY.md 为 Harness 约定路径
-TARGET = LAB_DIR / ".openharness" / "MEMORY.md"
+TARGET = LAB_DIR / ".openharness" / "MEMORY.md"  # Path
 
 
 def main():

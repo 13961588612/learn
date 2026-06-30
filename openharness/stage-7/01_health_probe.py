@@ -15,7 +15,7 @@ def main():
     print("=" * 50)   # 字符串 * 整数：重复 50 次
     print("01 - Health Probe")
     print("=" * 50)
-    for c in CHECKS:  # 遍历每条检查项
+    for c in CHECKS:  # str
         print(f"  - {c}")  # f-string 嵌入变量
     print("\n[OK] 完成")
 

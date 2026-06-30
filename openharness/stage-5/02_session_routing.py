@@ -16,8 +16,8 @@ class SessionRoute:
 
 def route_im_message(channel: str, user_id: str, tenant: str) -> SessionRoute:
     # f-string 拼接 profile 名；-> SessionRoute 标注返回值类型
-    profile = f"tenant-{tenant}"
-    thread = f"{channel}:{user_id}"  # 用冒号组合通道与用户，形成唯一 thread key
+    profile = f"tenant-{tenant}"  # str
+    thread = f"{channel}:{user_id}"  # str：用冒号组合通道与用户，形成唯一 thread key
     # 位置参数构造 SessionRoute；dataclass 按字段顺序接收
     return SessionRoute(channel, user_id, thread, profile)
 
@@ -26,7 +26,7 @@ def main():
     print("=" * 50)   # 字符串 * 整数：重复 50 次
     print("02 - Session Routing")
     print("=" * 50)
-    r = route_im_message("feishu", "u-1001", "acme")
+    r = route_im_message("feishu", "u-1001", "acme")  # SessionRoute
     print(f"  {r}")   # dataclass 自动生成 __repr__，打印可读字段
     print("\n[OK] 完成")
 

@@ -23,7 +23,7 @@ def main():
     print("=" * 50)
 
     # for dim, oh, lg in COMPARISON 元组解包
-    for dim, oh, lg in COMPARISON:
+    for dim, oh, lg in COMPARISON:  # dim: str；oh: str；lg: str
         print(f"\n  [{dim}]")
         print(f"    OpenHarness: {oh}")
         print(f"    LangGraph:   {lg}")

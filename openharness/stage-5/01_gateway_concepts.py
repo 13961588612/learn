@@ -16,7 +16,7 @@ def main():
     print("01 - Gateway Concepts")
     print("=" * 50)
     # for name, desc in CHANNELS：元组解包，依次遍历每个通道
-    for name, desc in CHANNELS:
+    for name, desc in CHANNELS:  # name: str；desc: str
         # f-string：{name:14} 左对齐占 14 字符宽度
         print(f"  {name:14} {desc}")
     print("\n  公司典型: IM -> Gateway -> Harness -> stream 回传")

@@ -35,10 +35,10 @@ def main():
     print("07 - MCP Security Baseline")
     print("=" * 50)
 
-    policy = McpSecurityPolicy()  # 使用 dataclass 默认值实例化
+    policy = McpSecurityPolicy()  # McpSecurityPolicy：使用 dataclass 默认值实例化
     # 元组 (a, b, c) 可迭代；for tool in ... 逐个检查
-    for tool in ("search_tickets", "delete_ticket", "run_shell"):
-        ok, msg = authorize_tool(tool, policy)  # 元组解包为 ok 与 msg
+    for tool in ("search_tickets", "delete_ticket", "run_shell"):  # str
+        ok, msg = authorize_tool(tool, policy)  # ok: bool；msg: str
         # 三元表达式：ok 为 True 显示 ALLOW，否则 DENY
         print(f"  {tool}: {'ALLOW' if ok else 'DENY'} ({msg})")
 

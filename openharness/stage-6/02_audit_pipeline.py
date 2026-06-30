@@ -32,7 +32,7 @@ def main():
     print("=" * 50)   # 字符串 * 整数：重复 50 次
     print("02 - Audit Pipeline")
     print("=" * 50)
-    rec = emit_audit("u1", "Write", False, {"path": "/prod/x"})
+    rec = emit_audit("u1", "Write", False, {"path": "/prod/x"})  # AuditRecord
     # asdict(rec) 转 dict；dumps 转 JSON；ensure_ascii=False 保留中文
     print(json.dumps(asdict(rec), ensure_ascii=False))
     print("\n[OK] 完成")

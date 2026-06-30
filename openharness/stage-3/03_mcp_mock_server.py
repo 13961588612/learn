@@ -13,8 +13,8 @@ from typing import Any               # Any=任意类型，用于 JSON 动态结�
 def handle_request(req: dict[str, Any]) -> dict[str, Any]:
     # dict[str, Any] 表示键为 str、值为任意类型的字典
     # .get("method") 安全取值，键不存在时返回 None
-    method = req.get("method")
-    req_id = req.get("id")  # JSON-RPC 请求 id，响应需原样回传
+    method = req.get("method")  # str | None
+    req_id = req.get("id")  # str | int | None：JSON-RPC 请求 id，响应需原样回传
 
     if method == "tools/list":
         # return 字典字面量即 JSON-RPC 2.0 成功响应
@@ -33,7 +33,7 @@ def handle_request(req: dict[str, Any]) -> dict[str, Any]:
 
     if method == "tools/call":
         # 链式 .get() 逐层安全访问嵌套 dict，任一层缺失返回 None
-        ticket_id = req.get("params", {}).get("arguments", {}).get("id")
+        ticket_id = req.get("params", {}).get("arguments", {}).get("id")  # str | None
         return {
             "jsonrpc": "2.0",
             "id": req_id,
@@ -51,12 +51,12 @@ def main():
     print("=" * 50)
 
     # 字典字面量模拟 JSON-RPC 请求；id 用于关联响应
-    list_req = {"jsonrpc": "2.0", "id": 1, "method": "tools/list"}
-    call_req = {"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": {"name": "get_ticket", "arguments": {"id": "T-100"}}}
+    list_req = {"jsonrpc": "2.0", "id": 1, "method": "tools/list"}  # dict[str, Any]
+    call_req = {"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": {"name": "get_ticket", "arguments": {"id": "T-100"}}}  # dict[str, Any]
 
     # (list_req, call_req) 元组可迭代；for req in ... 依次处理两个请求
-    for req in (list_req, call_req):
-        resp = handle_request(req)
+    for req in (list_req, call_req):  # dict[str, Any]
+        resp = handle_request(req)  # dict[str, Any]
         # json.dumps 序列化；ensure_ascii=False 保留中文；[:120] 切片截断显示
         print(f"\n  {req['method']} -> {json.dumps(resp, ensure_ascii=False)[:120]}...")
 

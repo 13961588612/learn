@@ -22,9 +22,9 @@ def main():
     print("=" * 50)
 
     # model_json_schema() 生成符合 JSON Schema 规范的字典，可直接作为 inputSchema
-    schema = SearchTicketsInput.model_json_schema()
+    schema = SearchTicketsInput.model_json_schema()  # dict
     # 字典字面量 {} 构造 MCP Tool 描述；键值对用冒号分隔
-    mcp_tool = {
+    mcp_tool = {  # dict
         "name": "search_tickets",
         "description": "Search internal tickets (read-only)",
         "inputSchema": schema,  # 引用上面 Pydantic 生成的 schema

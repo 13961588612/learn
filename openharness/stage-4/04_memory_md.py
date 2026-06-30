@@ -35,8 +35,8 @@ def main():
     print("04 - MEMORY.md")
     print("=" * 50)
 
-    mem_path = Path(__file__).parent / "data" / "MEMORY.md"
-    content = load_memory(mem_path)
+    mem_path = Path(__file__).parent / "data" / "MEMORY.md"  # Path
+    content = load_memory(mem_path)  # str
     print(f"  路径: {mem_path}")
     # splitlines() 按行拆分；len 统计行数
     print(f"  行数: {len(content.splitlines())}")

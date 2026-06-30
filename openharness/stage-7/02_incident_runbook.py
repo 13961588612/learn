@@ -16,7 +16,7 @@ def main():
     print("02 - Incident Runbook")
     print("=" * 50)
     # dict.items() 返回 (键, 值) 元组，for 循环解包
-    for k, v in RUNBOOK.items():
+    for k, v in RUNBOOK.items():  # k: str；v: str
         print(f"  {k}: {v}")
     print("\n[OK] 完成")
 

@@ -34,15 +34,15 @@ class TaskManager:
 
     def create(self, prompt: str) -> Task:
         self._counter += 1  # 自增生成唯一 id
-        tid = f"task-{self._counter}"  # f-string 拼接 id
+        tid = f"task-{self._counter}"  # str
         # 创建时直接设为 RUNNING，模拟后台立即启动
-        t = Task(id=tid, prompt=prompt, status=TaskStatus.RUNNING)
+        t = Task(id=tid, prompt=prompt, status=TaskStatus.RUNNING)  # Task
         self.tasks[tid] = t  # dict 赋值注册 Task
         return t
 
     def complete(self, tid: str, output: str) -> None:
         # -> None 表示无返回值；通过修改 t 的属性更新状态
-        t = self.tasks[tid]  # 按键取 Task；不存在会 KeyError
+        t = self.tasks[tid]  # Task
         t.output = output
         t.status = TaskStatus.DONE
 
@@ -56,13 +56,13 @@ def main():
     print("03 - Task Lifecycle")
     print("=" * 50)
 
-    mgr = TaskManager()
-    t = mgr.create("汇总上周工单统计")
+    mgr = TaskManager()  # TaskManager
+    t = mgr.create("汇总上周工单统计")  # Task
     mgr.complete(t.id, "共 42 单，P0: 2")
     # .status.value 取 Enum 底层字符串值
     print(f"  {t.id} status={t.status.value} output={t.output}")
 
-    t2 = mgr.create("长时间扫描")
+    t2 = mgr.create("长时间扫描")  # Task
     mgr.stop(t2.id)  # 模拟用户或系统中止
     print(f"  {t2.id} status={t2.status.value}")
 

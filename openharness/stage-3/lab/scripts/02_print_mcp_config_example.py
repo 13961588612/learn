@@ -4,9 +4,9 @@ import json
 from pathlib import Path
 
 # parents[3] 从 lab/scripts/ 向上到仓库根 learn/
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[3]  # Path
 # / 运算符拼接路径段，指向 showcase 示例配置
-EXAMPLE = ROOT / "showcase" / "03_mcp_readonly_server" / "config" / "servers.json.example"
+EXAMPLE = ROOT / "showcase" / "03_mcp_readonly_server" / "config" / "servers.json.example"  # Path
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
         print("  示例文件不存在")
         return
     # read_text 读 UTF-8 文本；json.loads 解析为 Python dict
-    data = json.loads(EXAMPLE.read_text(encoding="utf-8"))
+    data = json.loads(EXAMPLE.read_text(encoding="utf-8"))  # dict
     # indent=2 美化输出；ensure_ascii=False 保留中文
     print(json.dumps(data, indent=2, ensure_ascii=False))
     print(f"\n  路径: {EXAMPLE}")
